@@ -5,6 +5,18 @@ bin-int/
 
 .vs/
 **.sln
-**.vcxproj
 **.vcxproj.filters
 **.vcxproj.user
+*.vcxproj
+*.user
+LearningOpenGL-Core/LearningOpenGL-Core.vcxproj
+LearningOpenGL-Core/LearningOpenGL-Core.vcxproj.user
+Sandbox/Sandbox.vcxproj
+Sandbox/Sandbox.vcxproj.user
+Sandbox/Sandbox.vcxproj.user
+LearningOpenGL-Core/LearningOpenGL-Core.vcxproj.user
+LearningOpenGL-Core/LearningOpenGL-Core.vcxproj.user
+LearningOpenGL-Core/LearningOpenGL-Core.vcxproj
+LearningOpenGL-Core/LearningOpenGL-Core.vcxproj.user
+Sandbox/Sandbox.vcxproj
+*.user
