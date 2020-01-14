@@ -1,4 +1,8 @@
 # LearningSandboxOpenGL
+
+
+This is purely for educational purposes and should be used to learn opengl without needing to "set up" a bunch of other things!
+
 If I ever wanted to learn Opengl. I should be using this library/project I made that enables me to quickly learn and experiment with OpenGL without the need to program "boiler plate" code. 
 
 
@@ -14,7 +18,7 @@ This should contain utilities to quickly learn OpenGL, such as:
 - Imgui for quick debugging
 
 
-  and more features.
+  and (hopefully) more features soon.
   
   
-  This is purely for educational purposes and should be used to learn opengl without needing to "set up" a bunch of other things!
+ 
