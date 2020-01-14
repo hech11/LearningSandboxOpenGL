@@ -11,11 +11,12 @@ Everything should be set up as soon as i create a project using this library.
 
 This should contain utilities to quickly learn OpenGL, such as:
 
-- Reading shader files
-- A window context
-- Input and event system
-- Camera controllers
-- Imgui for quick debugging
+- Reading shader files.
+- A window context.
+- Input and event system.
+- Camera controllers.
+- Debugging utilites such as logging and debugging OpenGL.
+- Imgui for quick and live debugging.
 
 
   and (hopefully) more features soon.
