@@ -11,7 +11,7 @@ namespace LSO {
 	Application::Application()
 	{
 		s_Instance = this;
-
+		
 		Log::Init();
 	}
 
@@ -42,6 +42,23 @@ namespace LSO {
 	}
 
 
+	void Application::OnEvent(Event& event) {
+
+
+		for (auto it = m_LayerStack.GetLayerStack().rbegin(); it != m_LayerStack.GetLayerStack().rend(); ++it)
+		{
+			(*it)->OnEvent(event);
+			if (event.Handled)
+				break;
+		}
+
+		for (const auto& layer : m_LayerStack.GetLayerStack()) {
+			layer->OnEvent(event);
+			if (event.Handled)
+				break;
+		}
+	}
+
 	void Application::Run() {
 		while (m_IsRunning) {
 
@@ -52,7 +69,6 @@ namespace LSO {
 
 		}
 	}
-
 
 
 }

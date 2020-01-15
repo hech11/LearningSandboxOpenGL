@@ -17,3 +17,4 @@
 #include <queue>
 #include <deque>
 #include <sstream>
+#include <functional>

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "Core/Event.h"
 
 namespace LSO {
 
@@ -15,6 +16,7 @@ namespace LSO {
 			virtual void OnDetach() {}
 
 			virtual void OnUpdate() {}
+			virtual void OnEvent(Event& event) {}
 
 
 			void SetName(const std::string& name) { m_Name = name; }

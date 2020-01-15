@@ -3,7 +3,7 @@
 
 #include "Utility/Log.h"
 #include "Core/LayerStack.h"
-
+#include "Core/Event.h"
 
 namespace LSO {
 
@@ -12,8 +12,11 @@ namespace LSO {
 			Application();
 
 			static Application& Get() { return *s_Instance; }
+			void OnEvent(Event& event);
 
 			void Run();
+
+
 
 			void PushLayer(Layer* layer);
 			void PushOverlay(Layer* overlay);
@@ -24,6 +27,7 @@ namespace LSO {
 
 			void PopLayer(Layer* layer);
 			void PopOverlay(Layer* overlay);
+
 
 		private:
 			static Application* s_Instance;

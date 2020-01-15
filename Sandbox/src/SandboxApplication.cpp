@@ -4,20 +4,15 @@ class ExampleLayer : public LSO::Layer {
 
 
 	public:
-		virtual void OnAttach() override
-		{
-			LSO_INFO("Example layer: OnAttach\n");
+		virtual void OnAttach() override {
 		}
 
 
 		virtual void OnDetach() override {
-			LSO_INFO("Example layer: OnDetach\n");
 		}
 
 
-		virtual void OnUpdate() override
-		{
-			LSO_WARN("Example layer: OnUpdate\n");
+		virtual void OnUpdate() override {
 		}
 
 	private :
