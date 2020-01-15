@@ -26,6 +26,8 @@ project "LearningOpenGL-Core"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "pch.h"
+	pchsource "LearningOpenGL-Core/src/pch.cpp"
 
 	files
 	{
