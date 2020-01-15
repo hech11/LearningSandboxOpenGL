@@ -42,7 +42,7 @@ namespace LSO {
 
 	void Logger::Info(const char* message, ...)
 	{
-		if ((m_Level != LSOLogLevels::LAll && m_Level != LSOLogLevels::LMessage) || m_Level == LSOLogLevels::LNone)
+		if ((m_Level != LSOLogLevels::LAll && m_Level != LSOLogLevels::LInfo) || m_Level == LSOLogLevels::LNone)
 			return;
 
 		CHANGE_CONSOLE_COLOR(15);

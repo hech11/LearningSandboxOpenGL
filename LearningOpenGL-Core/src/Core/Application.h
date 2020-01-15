@@ -2,6 +2,8 @@
 
 
 #include "Utility/Log.h"
+#include "Core/LayerStack.h"
+
 
 namespace LSO {
 
@@ -9,10 +11,25 @@ namespace LSO {
 		public:
 			Application();
 
+			static Application& Get() { return *s_Instance; }
+
 			void Run();
 
-		private: 
+			void PushLayer(Layer* layer);
+			void PushOverlay(Layer* overlay);
+
+
+			void PopLayer();
+			void PopOverlay();
+
+			void PopLayer(Layer* layer);
+			void PopOverlay(Layer* overlay);
+
+		private:
+			static Application* s_Instance;
+
 			bool m_IsRunning = true;
+			LayerStack m_LayerStack;
 	};
 
 }

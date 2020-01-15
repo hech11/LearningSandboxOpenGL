@@ -6,35 +6,53 @@
 namespace LSO {
 
 
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		s_Instance = this;
+
 		Log::Init();
-
-
-		int test = 1234;
-		LSO_CORE_SET_LOG_LEVEL(LSOLogLevels::LNone);
-		LSO_SET_LOG_LEVEL(LSOLogLevels::LNone);
-
-		LSO_CORE_INFO("Message %d\n", test);
-		LSO_INFO("Message %d\n", test);
-
-		LSO_CORE_WARN("Waring %d\n", test);
-		LSO_WARN("Warning %d\n", test);
-		LSO_CORE_ERROR("Error %d\n", test);
-		LSO_ERROR("Error %d\n", test);
-		LSO_TRACE("Trace %d\n", test);
-		LSO_CORE_TRACE("Trace %d\n", test);
-
-		LSO_FATAL("FATAL %d\n", test);
-		LSO_CORE_FATAL("FATAL %d\n", test);
 	}
+
+
+
+	void Application::PushLayer(Layer* layer) {
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* overlay) {
+		m_LayerStack.PushOverlay(overlay);
+	}
+
+	void Application::PopLayer() {
+		m_LayerStack.PopLayer();
+	}
+
+	void Application::PopLayer(Layer* layer) {
+		m_LayerStack.PopLayer(layer);
+	}
+
+	void Application::PopOverlay() {
+		m_LayerStack.PopOverlayer();
+	}
+
+	void Application::PopOverlay(Layer* overlay) {
+		m_LayerStack.PopOverlayer(overlay);
+	}
+
 
 	void Application::Run() {
 		while (m_IsRunning) {
 
-
+			//Update loop
+			for (const auto& layer : m_LayerStack.GetLayerStack()) {
+				layer->OnUpdate();
+			}
 
 		}
 	}
+
+
 
 }
