@@ -12,7 +12,8 @@ class ExampleLayer : public LSO::Layer {
 		}
 
 
-		virtual void OnUpdate() override {
+		virtual void OnUpdate(const LSO::Timestep& ts) override {
+
 		}
 
 	private :

@@ -62,9 +62,13 @@ namespace LSO {
 	void Application::Run() {
 		while (m_IsRunning) {
 
+			float time = 0.0f; // temp
+			Timestep ts = time - m_LastFrameTime;
+			m_LastFrameTime = time;
+
 			//Update loop
 			for (const auto& layer : m_LayerStack.GetLayerStack()) {
-				layer->OnUpdate();
+				layer->OnUpdate(ts);
 			}
 
 		}

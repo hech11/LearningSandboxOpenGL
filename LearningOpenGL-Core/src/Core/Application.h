@@ -31,9 +31,11 @@ namespace LSO {
 
 		private:
 			static Application* s_Instance;
+			LayerStack m_LayerStack;
 
 			bool m_IsRunning = true;
-			LayerStack m_LayerStack;
+			float m_LastFrameTime = 0.0f;
+
 	};
 
 }

@@ -3,6 +3,8 @@
 #include "pch.h"
 #include "Core/Event.h"
 
+#include "Core/Timestep.h"
+
 namespace LSO {
 
 	class Layer {
@@ -15,7 +17,7 @@ namespace LSO {
 			virtual void OnAttach(){}
 			virtual void OnDetach() {}
 
-			virtual void OnUpdate() {}
+			virtual void OnUpdate(const Timestep& ts) {}
 			virtual void OnEvent(Event& event) {}
 
 
