@@ -18,12 +18,14 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "LearningOpenGL-Core/vendor/GLFW/include"
 IncludeDir["GLAD"] = "LearningOpenGL-Core/vendor/GLAD/include"
-IncludeDir["IMGUI"] = "LearningOpenGL-Core/vendor/IMGUI"
 IncludeDir["GLM"] = "LearningOpenGL-Core/vendor/GLM"
+IncludeDir["IMGUI"] = "LearningOpenGL-Core/vendor/IMGUI"
+
 
 group "Dependencies"
 	include "LearningOpenGL-Core/vendor/GLFW"
 	include "LearningOpenGL-Core/vendor/GLAD"
+	include "LearningOpenGL-Core/vendor/GLM"
 	include "LearningOpenGL-Core/vendor/IMGUI"
 group ""
 
@@ -45,8 +47,7 @@ project "LearningOpenGL-Core"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
-		"%{IncludeDir.GLM}/glm/**.hpp",
-		"%{IncludeDir.GLM}/glm/**.inl",
+		
 	}
 
 	defines
@@ -68,6 +69,7 @@ project "LearningOpenGL-Core"
 	{
 		"GLAD",
 		"GLFW",
+		"GLM",
 		"IMGUI",
 		"opengl32.lib"
 	}

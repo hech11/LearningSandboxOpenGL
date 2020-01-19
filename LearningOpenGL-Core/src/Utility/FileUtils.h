@@ -4,6 +4,6 @@
 
 namespace LSO {
 
-	static std::string& ReadFile(const std::string& filepath);
+	std::string ReadFile(const std::string& filepath);
 
 }
