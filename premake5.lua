@@ -19,6 +19,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "LearningOpenGL-Core/vendor/GLFW/include"
 IncludeDir["GLAD"] = "LearningOpenGL-Core/vendor/GLAD/include"
 IncludeDir["IMGUI"] = "LearningOpenGL-Core/vendor/IMGUI"
+IncludeDir["GLM"] = "LearningOpenGL-Core/vendor/GLM"
 
 group "Dependencies"
 	include "LearningOpenGL-Core/vendor/GLFW"
@@ -44,6 +45,8 @@ project "LearningOpenGL-Core"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{IncludeDir.GLM}/glm/**.hpp",
+		"%{IncludeDir.GLM}/glm/**.inl",
 	}
 
 	defines
@@ -56,7 +59,8 @@ project "LearningOpenGL-Core"
 		"%{prj.name}/src",
 		"%{IncludeDir.IMGUI}",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.GLAD}"
+		"%{IncludeDir.GLAD}",
+		"%{IncludeDir.GLM}"
 
 	}
 
@@ -111,6 +115,7 @@ project "Sandbox"
 		"LearningOpenGL-Core/src",
 		"%{IncludeDir.IMGUI}",
 		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLM}",
 		"%{IncludeDir.GLAD}"
 
 
