@@ -15,6 +15,7 @@ namespace LSO {
 		Log::Init();
 
 		m_Window = std::make_unique<Window>();
+		m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 		m_Window->SetVsync(false);
 	}
 
@@ -47,19 +48,16 @@ namespace LSO {
 
 	void Application::OnEvent(Event& event) {
 
+		EventDispatcher dispatcher(event);
+		dispatcher.Dispatch<WindowClosedEvent>(std::bind(&Application::OnWindowClosed, this, std::placeholders::_1));
 
-		for (auto it = m_LayerStack.GetLayerStack().rbegin(); it != m_LayerStack.GetLayerStack().rend(); ++it)
-		{
+		for (auto it = m_LayerStack.GetLayerStack().rbegin(); it != m_LayerStack.GetLayerStack().rend(); ++it) {
 			(*it)->OnEvent(event);
 			if (event.Handled)
 				break;
 		}
 
-		for (const auto& layer : m_LayerStack.GetLayerStack()) {
-			layer->OnEvent(event);
-			if (event.Handled)
-				break;
-		}
+
 	}
 
 	void Application::Run() {
@@ -84,5 +82,10 @@ namespace LSO {
 		}
 	}
 
+
+	bool Application::OnWindowClosed(WindowClosedEvent& e) {
+		m_IsRunning = false;
+		return true;
+	}
 
 }

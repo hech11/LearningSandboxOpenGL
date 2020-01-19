@@ -30,18 +30,18 @@ namespace LSO {
 			void StartUp(const WindowProperties& props);
 			void Shutdown();
 
-			void SetEventCallback(const EventCallbackFncPtr& eventCallback) { m_Data.eventCallback = eventCallback; }
+			void SetEventCallback(const EventCallbackFncPtr& eventCallback) { m_Data.EventCallback = eventCallback; }
 
 			void SetVsync(bool enable);
 
 			void OnUpdate();
 
-			unsigned int GetWidth() const { return m_Data.props.Width; }
-			unsigned int GetHeight() const { return m_Data.props.Height; }
+			unsigned int GetWidth() const { return m_Data.Props.Width; }
+			unsigned int GetHeight() const { return m_Data.Props.Height; }
 			std::pair<unsigned int, unsigned int>& GetDimensions() { return std::make_pair(GetWidth(), GetHeight()); }
 
-			unsigned int GetXpos() const { return m_Data.props.xPos; }
-			unsigned int GetYpos() const { return m_Data.props.yPos; }
+			unsigned int GetXpos() const { return m_Data.Props.xPos; }
+			unsigned int GetYpos() const { return m_Data.Props.yPos; }
 			std::pair<unsigned int, unsigned int>& GetPosition() { return std::make_pair(GetXpos(), GetYpos()); }
 
 
@@ -49,10 +49,10 @@ namespace LSO {
 			GLFWwindow* m_Window;
 
 			struct WindowData {
-				WindowProperties props;
+				WindowProperties Props;
 				bool Vsync;
 
-				EventCallbackFncPtr eventCallback;
+				EventCallbackFncPtr EventCallback;
 			};
 
 			WindowData m_Data;

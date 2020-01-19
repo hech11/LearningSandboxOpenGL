@@ -9,14 +9,13 @@
 namespace LSO {
 
 	class Application {
-		public:
+		public :
 			Application();
 
 			static Application& Get() { return *s_Instance; }
 			void OnEvent(Event& event);
 
 			void Run();
-
 
 
 			void PushLayer(Layer* layer);
@@ -30,7 +29,11 @@ namespace LSO {
 			void PopOverlay(Layer* overlay);
 
 
-		private:
+		// Events
+		private :
+			bool OnWindowClosed(WindowClosedEvent& e);
+
+		private :
 			static Application* s_Instance;
 			LayerStack m_LayerStack;
 			std::unique_ptr<Window> m_Window;
