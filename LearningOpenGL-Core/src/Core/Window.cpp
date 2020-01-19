@@ -34,7 +34,7 @@ namespace LSO {
 		glfwMakeContextCurrent(m_Window);
 		// init glad here
 		int gladValidation = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		LSO_ASSERT(gladValidation, "Falied to init glad!");
+		LSO_ASSERT(gladValidation, "Failed to init glad!");
 
 		LSO_CORE_INFO("OpenGL Vendor: %s\n", glGetString(GL_VENDOR));
 		LSO_CORE_INFO("OpenGL Version: %s\n", glGetString(GL_VERSION));

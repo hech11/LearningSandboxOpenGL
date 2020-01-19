@@ -45,6 +45,8 @@ namespace LSO {
 			std::pair<unsigned int, unsigned int>& GetPosition() { return std::make_pair(GetXpos(), GetYpos()); }
 
 
+			void* GetNativeWindow() { return m_Window; }
+
 		private :
 			GLFWwindow* m_Window;
 

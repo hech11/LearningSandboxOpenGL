@@ -2,6 +2,8 @@
 #include "Application.h"
 
 
+#include <GLFW/glfw3.h>
+
 namespace LSO {
 
 
@@ -15,7 +17,12 @@ namespace LSO {
 
 		m_Window = std::make_unique<Window>();
 		m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
-		m_Window->SetVsync(false);
+		m_Window->SetVsync(true);
+
+
+
+		PushOverlay(m_ImguiLayer = new ImGuiLayer());
+
 	}
 
 
@@ -64,7 +71,7 @@ namespace LSO {
 
 		while (m_IsRunning) {
 
-			float time = 0.0f; // temp
+			float time = (float)glfwGetTime();
 			Timestep ts = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
@@ -73,7 +80,12 @@ namespace LSO {
 				layer->OnUpdate(ts);
 			}
 
-
+			// ImGui loop
+			m_ImguiLayer->Start();
+			for (const auto& layer : m_LayerStack.GetLayerStack()) {
+				layer->OnImguiRender();
+			}
+			m_ImguiLayer->End();
 
 
 			m_Window->OnUpdate();

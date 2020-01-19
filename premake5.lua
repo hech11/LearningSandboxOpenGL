@@ -109,7 +109,10 @@ project "Sandbox"
 	includedirs
 	{
 		"LearningOpenGL-Core/src",
-		"LearningOpenGL-Core/vendor"
+		"%{IncludeDir.IMGUI}",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLAD}"
+
 
 	}
 

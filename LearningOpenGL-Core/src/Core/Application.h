@@ -5,6 +5,7 @@
 #include "Core/LayerStack.h"
 #include "Core/Event.h"
 #include "Core/Window.h"
+#include "Core/ImGuiLayer.h"
 
 namespace LSO {
 
@@ -29,6 +30,8 @@ namespace LSO {
 			void PopOverlay(Layer* overlay);
 
 
+			std::unique_ptr<Window>& GetWindow() { return m_Window; }
+
 		// Events
 		private :
 			bool OnWindowClosed(WindowClosedEvent& e);
@@ -37,6 +40,7 @@ namespace LSO {
 			static Application* s_Instance;
 			LayerStack m_LayerStack;
 			std::unique_ptr<Window> m_Window;
+			ImGuiLayer* m_ImguiLayer;
 
 			bool m_IsRunning = true;
 			float m_LastFrameTime = 0.0f;

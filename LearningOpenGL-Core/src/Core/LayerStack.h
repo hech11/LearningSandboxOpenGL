@@ -20,6 +20,8 @@ namespace LSO {
 			virtual void OnUpdate(const Timestep& ts) {}
 			virtual void OnEvent(Event& event) {}
 
+			virtual void OnImguiRender() {}
+
 
 			void SetName(const std::string& name) { m_Name = name; }
 

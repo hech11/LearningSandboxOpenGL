@@ -1,4 +1,4 @@
-#include "Core/Application.h"
+#include "OpenGL-Core.h"
 
 class ExampleLayer : public LSO::Layer {
 
@@ -8,16 +8,18 @@ class ExampleLayer : public LSO::Layer {
 		}
 
 
-		virtual void OnDetach() override {
-		}
-
-
 		virtual void OnUpdate(const LSO::Timestep& ts) override {
+			glClear(GL_COLOR_BUFFER_BIT);
 
+			LSO_INFO("timestep: %f\n", ts.GetSeconds());
 		}
 
 
-		virtual void OnEvent(LSO::Event& event) override {
+		
+		virtual void OnImguiRender() override {
+			ImGui::Begin("Test Window");
+			ImGui::Button("Test button");
+			ImGui::End();
 		}
 
 private:
