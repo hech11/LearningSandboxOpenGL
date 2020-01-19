@@ -13,6 +13,9 @@ namespace LSO {
 		s_Instance = this;
 		
 		Log::Init();
+
+		m_Window = std::make_unique<Window>();
+		m_Window->SetVsync(false);
 	}
 
 
@@ -60,8 +63,6 @@ namespace LSO {
 	}
 
 	void Application::Run() {
-		int initGlfw = glfwInit();
-		LSO_ASSERT(initGlfw, "Failed to init GLFW!");
 
 
 		while (m_IsRunning) {
@@ -74,6 +75,11 @@ namespace LSO {
 			for (const auto& layer : m_LayerStack.GetLayerStack()) {
 				layer->OnUpdate(ts);
 			}
+
+
+
+
+			m_Window->OnUpdate();
 
 		}
 	}

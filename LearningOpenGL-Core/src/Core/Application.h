@@ -4,6 +4,7 @@
 #include "Utility/Log.h"
 #include "Core/LayerStack.h"
 #include "Core/Event.h"
+#include "Core/Window.h"
 
 namespace LSO {
 
@@ -32,6 +33,7 @@ namespace LSO {
 		private:
 			static Application* s_Instance;
 			LayerStack m_LayerStack;
+			std::unique_ptr<Window> m_Window;
 
 			bool m_IsRunning = true;
 			float m_LastFrameTime = 0.0f;
