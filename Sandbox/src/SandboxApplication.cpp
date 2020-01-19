@@ -18,7 +18,6 @@ class ExampleLayer : public LSO::Layer {
 
 
 		virtual void OnEvent(LSO::Event& event) override {
-			LSO_INFO("%s\n", event.ToString().c_str());
 		}
 
 private:

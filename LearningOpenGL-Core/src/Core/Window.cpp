@@ -2,6 +2,8 @@
 #include "Window.h"
 
 #include <GLFW/include/GLFW/glfw3.h>
+#include <GLAD/include/glad/glad.h>
+
 #include "Utility/Log.h"
 
 #include "Event.h"
@@ -31,12 +33,13 @@ namespace LSO {
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		glfwMakeContextCurrent(m_Window);
 		// init glad here
+		int gladValidation = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		LSO_ASSERT(gladValidation, "Falied to init glad!");
+
+		LSO_CORE_INFO("OpenGL Vendor: %s\n", glGetString(GL_VENDOR));
+		LSO_CORE_INFO("OpenGL Version: %s\n", glGetString(GL_VERSION));
 
 		// init glfw events here
-
-
-
-
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xpos, double ypos) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			MouseMovedEvent e((int)xpos, (int)ypos);

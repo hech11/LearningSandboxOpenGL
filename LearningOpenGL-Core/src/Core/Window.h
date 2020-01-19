@@ -50,7 +50,7 @@ namespace LSO {
 
 			struct WindowData {
 				WindowProperties Props;
-				bool Vsync;
+				bool Vsync = true;
 
 				EventCallbackFncPtr EventCallback;
 			};

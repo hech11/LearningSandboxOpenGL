@@ -17,9 +17,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "LearningOpenGL-Core/vendor/GLFW"
+IncludeDir["GLAD"] = "LearningOpenGL-Core/vendor/GLAD"
 
 group "Dependencies"
 	include "LearningOpenGL-Core/vendor/GLFW"
+	include "LearningOpenGL-Core/vendor/GLAD"
 group ""
 
 
@@ -39,7 +41,9 @@ project "LearningOpenGL-Core"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/GLAD/**.h",
+		"%{prj.name}/vendor/GLAD/**.cpp"
 	}
 
 	defines
@@ -50,13 +54,15 @@ project "LearningOpenGL-Core"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor"
-
+		"%{prj.name}/vendor",
+		"%{prj.name}/vendor/GLAD/include"
 	}
 
 	links
 	{
-		"GLFW"
+		"GLAD",
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -106,6 +112,7 @@ project "Sandbox"
 	links
 	{
 		"GLFW",
+		"GLAD",
 		"LearningOpenGL-Core"
 	}
 
