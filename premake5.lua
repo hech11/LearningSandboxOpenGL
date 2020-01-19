@@ -16,12 +16,14 @@ workspace "LearningSandboxOpenGL"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "LearningOpenGL-Core/vendor/GLFW"
-IncludeDir["GLAD"] = "LearningOpenGL-Core/vendor/GLAD"
+IncludeDir["GLFW"] = "LearningOpenGL-Core/vendor/GLFW/include"
+IncludeDir["GLAD"] = "LearningOpenGL-Core/vendor/GLAD/include"
+IncludeDir["IMGUI"] = "LearningOpenGL-Core/vendor/IMGUI"
 
 group "Dependencies"
 	include "LearningOpenGL-Core/vendor/GLFW"
 	include "LearningOpenGL-Core/vendor/GLAD"
+	include "LearningOpenGL-Core/vendor/IMGUI"
 group ""
 
 
@@ -42,8 +44,6 @@ project "LearningOpenGL-Core"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
-		"%{prj.name}/vendor/GLAD/**.h",
-		"%{prj.name}/vendor/GLAD/**.cpp"
 	}
 
 	defines
@@ -54,14 +54,17 @@ project "LearningOpenGL-Core"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor",
-		"%{prj.name}/vendor/GLAD/include"
+		"%{IncludeDir.IMGUI}",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLAD}"
+
 	}
 
 	links
 	{
 		"GLAD",
 		"GLFW",
+		"IMGUI",
 		"opengl32.lib"
 	}
 
@@ -106,13 +109,12 @@ project "Sandbox"
 	includedirs
 	{
 		"LearningOpenGL-Core/src",
-		"LearningOpenGL-Core/vendor",
+		"LearningOpenGL-Core/vendor"
+
 	}
 
 	links
 	{
-		"GLFW",
-		"GLAD",
 		"LearningOpenGL-Core"
 	}
 

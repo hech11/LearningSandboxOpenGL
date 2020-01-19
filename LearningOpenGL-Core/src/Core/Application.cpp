@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Application.h"
 
-#include <GLFW/include/GLFW/glfw3.h>
 
 namespace LSO {
 

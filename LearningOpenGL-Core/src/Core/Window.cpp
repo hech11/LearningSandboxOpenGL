@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "Window.h"
 
-#include <GLFW/include/GLFW/glfw3.h>
-#include <GLAD/include/glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 #include "Utility/Log.h"
 
