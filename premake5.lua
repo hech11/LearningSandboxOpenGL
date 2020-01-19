@@ -15,6 +15,13 @@ workspace "LearningSandboxOpenGL"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "LearningOpenGL-Core/vendor/GLFW"
+
+group "Dependencies"
+	include "LearningOpenGL-Core/vendor/GLFW"
+group ""
+
 
 project "LearningOpenGL-Core"
 	location "LearningOpenGL-Core"
@@ -32,7 +39,7 @@ project "LearningOpenGL-Core"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/src/**.cpp"
 	}
 
 	defines
@@ -43,14 +50,21 @@ project "LearningOpenGL-Core"
 	includedirs
 	{
 		"%{prj.name}/src",
+		"%{prj.name}/vendor"
+
 	}
 
+	links
+	{
+		"GLFW"
+	}
 
 	filter "system:windows"
 		systemversion "latest"
 
 		defines
 		{
+			"GLFW_INCLUDE_NONE",
 			"LSO_PLATFORM_WINDOWS"
 		}
 
@@ -86,10 +100,12 @@ project "Sandbox"
 	includedirs
 	{
 		"LearningOpenGL-Core/src",
+		"LearningOpenGL-Core/vendor",
 	}
 
 	links
 	{
+		"GLFW",
 		"LearningOpenGL-Core"
 	}
 
@@ -101,6 +117,7 @@ project "Sandbox"
 
 		defines
 		{
+			"GLFW_INCLUDE_NONE",
 			"LSO_PLATFORM_WINDOWS"
 		}
 		

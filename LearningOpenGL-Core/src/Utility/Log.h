@@ -63,3 +63,8 @@ namespace LSO {
 #define LSO_ERROR(message, ...) LSO::Log::GetClient()->Error(message, __VA_ARGS__)
 #define LSO_FATAL(message, ...) LSO::Log::GetClient()->Fatal(message, __VA_ARGS__)
 #define LSO_SET_LOG_LEVEL(level) LSO::Log::GetClient()->SetLogLevel(level)
+
+
+#define LSO_ASSERT(x, message, ...) if(!(x)){\
+LSO::Log::GetCore()->Fatal(message, __VA_ARGS__ );\
+__debugbreak();}

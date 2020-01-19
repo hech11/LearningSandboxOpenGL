@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Application.h"
 
-
+#include <GLFW/include/GLFW/glfw3.h>
 
 namespace LSO {
 
@@ -60,6 +60,10 @@ namespace LSO {
 	}
 
 	void Application::Run() {
+		int initGlfw = glfwInit();
+		LSO_ASSERT(initGlfw, "Failed to init GLFW!");
+
+
 		while (m_IsRunning) {
 
 			float time = 0.0f; // temp
