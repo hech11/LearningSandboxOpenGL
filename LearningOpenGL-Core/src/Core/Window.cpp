@@ -48,7 +48,7 @@ namespace LSO {
 
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xscroll, double yscroll) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			MouseScrolledEvent e((int)xscroll, (int)yscroll);
+			MouseScrolledEvent e(xscroll, yscroll);
 			data.EventCallback(e);
 		});
 

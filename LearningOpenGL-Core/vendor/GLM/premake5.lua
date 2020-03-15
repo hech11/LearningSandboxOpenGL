@@ -7,6 +7,7 @@ project "GLM"
 
 	files
 	{
+		"BuildGLM.cpp",
 		"glm/**.hpp",
 		"glm/**.inl"
 	}

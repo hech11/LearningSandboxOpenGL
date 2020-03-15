@@ -57,6 +57,7 @@ namespace LSO {
 		EventDispatcher dispatcher(event);
 		dispatcher.Dispatch<WindowClosedEvent>(std::bind(&Application::OnWindowClosed, this, std::placeholders::_1));
 
+
 		for (auto it = m_LayerStack.GetLayerStack().rbegin(); it != m_LayerStack.GetLayerStack().rend(); ++it) {
 			(*it)->OnEvent(event);
 			if (event.Handled)
@@ -80,6 +81,7 @@ namespace LSO {
 				layer->OnUpdate(ts);
 			}
 
+
 			// ImGui loop
 			m_ImguiLayer->Start();
 			for (const auto& layer : m_LayerStack.GetLayerStack()) {
@@ -98,5 +100,6 @@ namespace LSO {
 		m_IsRunning = false;
 		return true;
 	}
+
 
 }

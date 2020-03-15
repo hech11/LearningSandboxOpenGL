@@ -6,6 +6,7 @@
 #include "Core/Event.h"
 #include "Core/Window.h"
 #include "Core/ImGuiLayer.h"
+#include "Core/OrthographicCamera.h"
 
 namespace LSO {
 
@@ -35,11 +36,15 @@ namespace LSO {
 		// Events
 		private :
 			bool OnWindowClosed(WindowClosedEvent& e);
+			bool OnWindowResized(WindowResizeEvent& e);
 
 		private :
 			static Application* s_Instance;
+
 			LayerStack m_LayerStack;
+
 			std::unique_ptr<Window> m_Window;
+
 			ImGuiLayer* m_ImguiLayer;
 
 			bool m_IsRunning = true;

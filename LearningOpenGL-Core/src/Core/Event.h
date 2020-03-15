@@ -78,8 +78,8 @@ namespace LSO {
 		public :
 			MouseScrolledEvent(int xscroll, int yscroll) : m_xScroll(xscroll), m_yScroll(yscroll) {}
 
-			unsigned int GetXScroll() const { return m_xScroll; }
-			unsigned int GetYScroll() const { return m_yScroll; }
+			float GetXScroll() const { return m_xScroll; }
+			float GetYScroll() const { return m_yScroll; }
 
 			std::string ToString() const override {
 				std::stringstream ss;

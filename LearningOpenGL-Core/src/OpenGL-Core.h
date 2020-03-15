@@ -6,6 +6,8 @@
 #include "Core/LayerStack.h"
 #include "Core/Timestep.h"
 #include "Core/Window.h"
+#include "Core/Input.h"
+#include "Core/OrthographicCamera.h"
 
 #include "imgui.h"
 #include <glad/glad.h>
