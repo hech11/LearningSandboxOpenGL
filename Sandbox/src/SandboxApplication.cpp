@@ -1,5 +1,6 @@
 #include "OpenGL-Core.h"
 #include "Utility/ShaderUtils.h"
+#include "Utility/stb_image.h"
 
 
 class ExampleLayer : public LSO::Layer {
@@ -7,6 +8,10 @@ class ExampleLayer : public LSO::Layer {
 
 	public:
 		virtual void OnAttach() override {
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+			glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 			glGenVertexArrays(1, &vao);
 			glBindVertexArray(vao);
 
