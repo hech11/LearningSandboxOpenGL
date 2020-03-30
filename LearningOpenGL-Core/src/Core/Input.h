@@ -19,5 +19,14 @@ namespace LSO {
 			auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow()->GetNativeWindow());
 			return (glfwGetMouseButton(window, button) == GLFW_PRESS);
 		}
+
+		static std::pair<double, double> GetMousePosition()
+		{
+			auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow()->GetNativeWindow());
+			double x, y;
+			glfwGetCursorPos(window, &x, &y);
+			return std::make_pair(x, y);
+		}
+
 	};
 }

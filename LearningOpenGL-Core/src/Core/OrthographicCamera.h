@@ -11,6 +11,14 @@
 namespace LSO {
 
 
+	struct OrthographicCameraBounds {
+		float Left, Right;
+		float Bottom, Top;
+
+		float GetWidth() { return Right - Left; }
+		float GetHeight() { return Top - Bottom; }
+	};
+
 	class OrthographicCamera {
 		public :
 			OrthographicCamera(float left, float right, float bottom, float top, float near = -1.0f, float far = 1.0f);
@@ -28,9 +36,13 @@ namespace LSO {
 			void Enlarge(const glm::vec3& offset);
 
 
+
+			const glm::vec3& GetPosition() const { return m_Position; }
+
 			void RecalculateProjViewMatrix();
 
 			inline const glm::mat4& GetProjView() const { return m_ProjViewMatrix; }
+
 
 		private :
 			float m_Angle, m_RotAxis;
@@ -57,6 +69,7 @@ namespace LSO {
 			bool OnWindowRezize(WindowResizeEvent& e);
 
 			OrthographicCamera& GetCamera() { return m_Camera; }
+			const OrthographicCameraBounds& GetBounds() const { return m_Bounds; }
 
 		private :
 
@@ -67,6 +80,7 @@ namespace LSO {
 			glm::vec3 m_CameraPos;
 
 			OrthographicCamera m_Camera;
+			OrthographicCameraBounds m_Bounds;
 	};
 
 }

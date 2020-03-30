@@ -14,7 +14,7 @@ namespace LSO {
 		bool Vsync;
 
 		WindowProperties(unsigned int width = 1280, unsigned int height = 720, unsigned int xpos = 50, unsigned int ypos = 50,
-			std::string title = "Learning OpenGL", bool vsync = true)
+			std::string title = "ParticleSystem test!", bool vsync = true)
 			: Width(width), Height(height), xPos(xpos), yPos(ypos), Title(title), Vsync(vsync)
 		{
 

@@ -2,6 +2,8 @@
 #include "Utility/ShaderUtils.h"
 #include "Utility/stb_image.h"
 
+#include "Examples/ParticleSystem.h"
+
 
 class ExampleLayer : public LSO::Layer {
 
@@ -116,6 +118,8 @@ private:
 
 		LSO::OrthographicCameraController* m_CameraController;
 };
+
+
 
 int main() {
 
